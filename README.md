@@ -11,26 +11,34 @@ https://www.getpostman.com/collections/f8176d1439a6182b76db
 This Repository is for a hypothetical blogging site. The table names and columns are as follows:
 
 1. Blog
-	->  name: CharField
-	-> text:  CharField
-	-> blog_type: CharField
-	-> created_by: User (Foreign Key)
-	-> date_added: DateField (auto_add_now)
+	[
+		 name: CharField,
+		 text:  CharField,
+		 blog_type: CharField,
+		 created_by: User (Foreign Key),
+		 date_added: DateField (auto_add_now),
+	]
 	
 2. Image Embed
-	-> name: CharField
-	-> blog: Blog (Foreign Key)
-	-> url: URLField
+	[
+		name: CharField,
+		blog: Blog (Foreign Key),
+	 	url: URLField,
+	]
 	
 3. Video Embed
-	-> name: CharField
-	-> blog: Blog (Foreign Key)
-	-> url: URLField
+	[
+		name: CharField,
+		blog: Blog (Foreign Key),
+		url: URLField,
+	]
 	
 4. GitHub Embed
-	-> blog: Blog (Foreign Key)
-	-> github: URLField
-	-> date_added: DateField (auto_add_now)
+	[
+		blog: Blog (Foreign Key),
+		github: URLField,
+		date_added: DateField (auto_add_now),
+	]
 	
 5. User (Inbuilt)
 
@@ -43,7 +51,7 @@ Assumed Relationships between tables:
 ## Endpoints:
 
 ```
-1. POST:
+1. POST (Create user):
 http://127.0.0.1:8000/blogs/api/v1/user/
 
 SAMPLE REQUEST:
@@ -59,7 +67,7 @@ SAMPLE RESPONSE:
 }
 ```
 ```
-2. GET: 
+2. GET (Get blog posts by user id): 
 http://127.0.0.1:8000/blogs/api/v1/blog/user_id
 
 Parameters: user_id
@@ -76,7 +84,7 @@ SAMPLE RESPONSE:
 ]'
 ```
 ```
-3. POST:
+3. POST (Create blog post for a user id):
 http://127.0.0.1:8000/blogs/api/v1/blog/
 
 SAMPLE REQUEST:
@@ -93,7 +101,7 @@ SAMPLE RESPONSE:
 }
 ```
 ```
-4. GET:
+4. GET (Get all images for az blog id):
 http://127.0.0.1:8000/blogs/api/v1/blog/image/blog_id
 
 Parameters: blog_id
@@ -109,7 +117,7 @@ SAMPLE RESPONSE:
 ]'
 ```
 ```
-5. POST:
+5. POST (Create image for a blog id):
 http://127.0.0.1:8000/blog/api/v1/image/
 
 SAMPLE REQUEST:
@@ -125,7 +133,7 @@ SAMPLE RESPONSE:
 }
 ```
 ```
-6. GET:
+6. GET (Get all videos for a blog id):
 http://127.0.0.1:8000/blogs/api/v1/blog/video/blog_id
 
 Parameters: blog_id
@@ -142,7 +150,7 @@ SAMPLE RESPONSE:
 
 ```
 ```
-7. POST:
+7. POST (Create video for a blog id):
 http://127.0.0.1:8000/blogs/api/v1/blog/video/
 
 SAMPLE REQUEST:
@@ -158,7 +166,7 @@ SAMPLE RESPONSE:
 }
 ```
 ```
-8. GET:
+8. GET (Get all the githug code for a blog id):
 http://127.0.0.1:8000/blogs/api/v1/blog/github/blog_id
 
 Parameters: blog_id
@@ -173,7 +181,7 @@ SAMPLE RESPONSE:
 ]'
 ```
 ```
-9. POST:
+9. POST (Create github code for a blog id):
 http://127.0.0.1:8000/blogs/api/v1/blog/github/
 
 SAMPLE REQUEST:
